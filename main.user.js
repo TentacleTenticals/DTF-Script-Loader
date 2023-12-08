@@ -3,7 +3,7 @@
 // @namespace   https://github.com/TentacleTenticals
 // @match       https://dtf.ru/*
 // @grant       none
-// @version     1.0
+// @version     1.0.0
 // @author      TentacleTenticals
 // @description Скрипт для определения статуса загрузки страниц DTF
 // @homepage    https://github.com/TentacleTenticals/DTF-Script-Loader
@@ -13,7 +13,6 @@
 
 (() => {
   function onPageLoad(){
-    console.log('[DTF PageLoadDetector]');
     {
     const log = console.log.bind(console);
     console.log = (...args) => {
@@ -66,16 +65,6 @@
     // console.log(url);
 
     switch(url[0]){
-      case 'live':{
-        if(stopLive){
-          const vanilDtf = document.querySelector(`body > div.main.layout > div.layout__right-column`);
-          const redesignDtf = document.querySelector(`#app>.layout>.aside--right>.live`);
-          if(vanilDtf) vanilDtf.remove();
-          else
-          if(redesignDtf) redesignDtf.remove();
-          stopLive = false;
-        }
-      }break;
       case 'feed':{
         const feeds = document.querySelectorAll(`#app>.layout>.view>.feed-page>.feed-page__content-list>.content-list>.content`);
         console.log('%c [Page Status] Page Ready! Type:new', 'background: #222; color: #bada55');
